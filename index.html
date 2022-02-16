@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>autodom react equiv</title>
+    <!-- https://stackoverflow.com/a/52310315 -->
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js">
+    </script>
+    <script type="module" src="./main.js"></script>
+    <style>
+        textarea {
+            height: 300px;
+            width: 100%;
+            max-width: 350px;
+        }
+        
+        .boxes {
+            display: flex;
+        }
+        
+        .boxes>* {
+            flex-basis: 100%;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boxes">
+        <div>
+            <p>Original file</p>
+            <textarea disabled id="source"></textarea>
+        </div>
+        <div>
+            <p>JSX AST (from acorn-jsx)</p>
+            <textarea disabled id="jsx-ast"></textarea>
+        </div>
+        <div>
+            <p>Babel output (transform-react-jsx plugin)</p>
+            <textarea disabled id="babel-react"></textarea>
+        </div>
+        <div>
+            <p>React Render</p>
+            <div id="root-react"></div>
+        </div>
+    </div>
+    <div class="boxes">
+        <div>
+            <p>React DOM</p>
+            <textarea disabled id="react-dom"></textarea>
+        </div>
+    </div>
+</body>
+
+</html>
