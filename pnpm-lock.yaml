@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@autolib/autodom': ^1.0.0
   '@babel/standalone': ^7.17.4
   acorn: ^8.7.0
   acorn-jsx: ^5.3.2
@@ -9,6 +10,7 @@ specifiers:
   vite: ^2.8.3
 
 dependencies:
+  '@autolib/autodom': link:../autodom
   '@babel/standalone': 7.17.4
   acorn: 8.7.0
   acorn-jsx: 5.3.2_acorn@8.7.0

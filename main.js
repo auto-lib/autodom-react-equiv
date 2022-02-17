@@ -11,10 +11,10 @@ let jsx_ast_el = document.querySelector('#jsx-ast');
 let babel_react_el = document.querySelector('#babel-react');
 
 // autodom_jsx.innerHTML = jsx_src;
-let obj = Parser.extend(jsx()).parse(square_src);
+let jsx_ast = Parser.extend(jsx()).parse(square_src);
 
 source_el.innerHTML = square_src;
-jsx_ast_el.innerHTML = JSON.stringify(obj, null, 4);
+jsx_ast_el.innerHTML = JSON.stringify(jsx_ast, null, 4);
 
 import { transform } from '@babel/standalone';
 // https://github.com/babel/babel/issues/8451#issuecomment-412123252
@@ -39,6 +39,11 @@ var F = new Function(newcode);
 F();
 
 document.querySelector("#react-dom").innerHTML = document.querySelector("#root-react").innerHTML;
+
+import * as autodom from '@autolib/autodom';
+let auto_out = autodom.jsx(jsx_ast);
+
+document.querySelector("#autodom-jsx").innerHTML = JSON.stringify(auto_out, null, 4);;
 
 // w3ColorCode(document.querySelector("#react-dom"));
 
