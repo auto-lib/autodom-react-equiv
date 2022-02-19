@@ -11,7 +11,7 @@ let jsx_ast_el = document.querySelector('#jsx-ast');
 let babel_react_el = document.querySelector('#babel-react');
 
 // autodom_jsx.innerHTML = jsx_src;
-let jsx_ast = Parser.extend(jsx()).parse(square_src);
+let jsx_ast = Parser.extend(jsx()).parse(square_src, { ecmaVersion: 6 });
 
 source_el.innerHTML = square_src;
 jsx_ast_el.innerHTML = JSON.stringify(jsx_ast, null, 4);
@@ -41,9 +41,9 @@ F();
 document.querySelector("#react-dom").innerHTML = document.querySelector("#root-react").innerHTML;
 
 import * as autodom from '@autolib/autodom';
-let auto_out = autodom.jsx(jsx_ast);
+let auto_out = autodom.jsx(jsx_ast, square_src);
 
-document.querySelector("#autodom-jsx").innerHTML = JSON.stringify(auto_out, null, 4);;
+document.querySelector("#autodom-jsx").innerHTML = auto_out;
 
 // w3ColorCode(document.querySelector("#react-dom"));
 
