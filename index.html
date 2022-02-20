@@ -9,8 +9,9 @@
     <!-- https://stackoverflow.com/a/52310315 -->
     <link rel="stylesheet" href="./style.css">
     <script src="./react.prod.min.js"></script>
-    <script src="./react-dom.prod.min.js">
-    </script>
+    <script src="./react-dom.prod.min.js"></script>
+    <!-- <script src="./node_modules/@autolib/autodom/umd.js"></script> -->
+    <!-- <script src="@autolib/autodom/umd.js"></script> -->
     <script type="module" src="./main.js"></script>
     <style>
         textarea {
@@ -57,6 +58,14 @@
         <div>
             <p>autodom jsx compiler</p>
             <textarea disabled id="autodom-jsx"></textarea>
+        </div>
+        <div>
+            <p>autodom object</p>
+            <textarea disabled id="autodom-object"></textarea>
+        </div>
+        <div>
+            <p>autodom render</p>
+            <div id="autodom-render"></div>
         </div>
     </div>
 </body>

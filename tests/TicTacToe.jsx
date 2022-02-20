@@ -1,5 +1,7 @@
 // https://codepen.io/gaearon/pen/aWWQOG
 
+let x = _ => <div>Hello {_.name}</div>
+
 class Square extends React.Component {
     render() {
       return (

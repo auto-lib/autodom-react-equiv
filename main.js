@@ -6,6 +6,11 @@ import jsx from 'acorn-jsx';
 import square_src from './tests/TicTacToe.jsx?raw';
 // import jsx_src from './App.jsx?raw';
 
+// not used but forced vite to reload
+import * as autodom from '@autolib/autodom';
+//import './node_modules/@autolib/autodom/umd.js';
+window.autodom = autodom;
+
 let source_el = document.querySelector('#source');
 let jsx_ast_el = document.querySelector('#jsx-ast');
 let babel_react_el = document.querySelector('#babel-react');
@@ -40,10 +45,22 @@ F();
 
 document.querySelector("#react-dom").innerHTML = document.querySelector("#root-react").innerHTML;
 
-import * as autodom from '@autolib/autodom';
-let auto_out = autodom.jsx(jsx_ast, square_src);
+//import * as autodom from '@autolib/autodom';
+//let auto_out = autodom.jsx(jsx_ast, square_src);
 
-document.querySelector("#autodom-jsx").innerHTML = auto_out;
+//document.querySelector("#autodom-jsx").innerHTML = auto_out;
+
+code = code.replace('import { jsxs as _jsxs } from "react/jsx-runtime";\n', '');
+code = code.replace('import { jsx as _jsx } from "react/jsx-runtime";\n', '');
+code = code.replaceAll('_jsxs', 'autodom.jsxs');
+code = code.replaceAll('_jsx', 'autodom.jsx');
+code = code.replaceAll("/*#__PURE__*/", '');
+code = code.replace("getElementById('root')", "getElementById('autodom-render')");
+code = code.replace("ReactDOM.render", "autodom.render");
+
+document.querySelector("#autodom-jsx").innerHTML = code;
+
+new Function(code)();
 
 // w3ColorCode(document.querySelector("#react-dom"));
 
