@@ -1,31 +1,14 @@
 {
     "name": "autodom-react-equiv",
     "version": "1.0.0",
-    "description": "",
-    "main": "test.js",
-    "scripts": {
-        "start": "esbuild test.js",
-        "watch": "node | esbuild test.js --bundle --target=node10.4 --watch",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/auto-lib/autodom-react-equiv.git"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/auto-lib/autodom-react-equiv/issues"
-    },
-    "homepage": "https://github.com/auto-lib/autodom-react-equiv#readme",
     "dependencies": {
         "@autolib/autodom": "^1.0.0",
         "@babel/standalone": "^7.17.4",
         "acorn": "^8.7.0",
-        "acorn-jsx": "^5.3.2",
-        "chokidar": "^3.5.3",
-        "esbuild": "^0.14.21",
-        "vite": "^2.8.3"
+        "acorn-jsx": "^5.3.2"
     }
 }
