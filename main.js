@@ -62,6 +62,8 @@ document.querySelector("#autodom-jsx").innerHTML = code;
 
 new Function(code)();
 
+document.querySelector("#autodom-html").innerHTML = document.querySelector("#autodom-render").innerHTML;
+
 // w3ColorCode(document.querySelector("#react-dom"));
 
 // babel_react_el.innerHTML = code;
