@@ -3,7 +3,7 @@
 import { Parser } from 'acorn';
 import jsx from 'acorn-jsx';
 
-import square_src from './tests/TicTacToe.jsx?raw';
+import square_src from './tests/TicTacToeFull.jsx?raw';
 
 // not used but forced vite to reload
 import * as autodom from '@autolib/autodom';
@@ -34,7 +34,7 @@ let newcode = transform(square_src, {
     presets: ['react']
 }).code;
 
-newcode = newcode.replace("getElementById('root')", "getElementById('root-react')");
+newcode = newcode.replace(`getElementById("root")`, "getElementById('root-react')");
 
 var F = new Function(newcode);
 
@@ -47,7 +47,7 @@ code = code.replace('import { jsx as _jsx } from "react/jsx-runtime";\n', '');
 code = code.replaceAll('_jsxs', 'autodom.jsxs');
 code = code.replaceAll('_jsx', 'autodom.jsx');
 code = code.replaceAll("/*#__PURE__*/", '');
-code = code.replace("getElementById('root')", "getElementById('autodom-render')");
+code = code.replace(`getElementById("root")`, "getElementById('autodom-render')");
 code = code.replace("ReactDOM.render", "autodom.render");
 
 document.querySelector("#autodom-jsx").innerHTML = code;
